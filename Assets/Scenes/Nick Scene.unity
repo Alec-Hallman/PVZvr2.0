@@ -829,6 +829,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Garden
       objectReference: {fileID: 0}
+    - target: {fileID: 3178561943342682968, guid: f223c4c00a8ad7d4f84d544bc5e9d13f,
+        type: 3}
+      propertyPath: dirtPrefab
+      value: 
+      objectReference: {fileID: 8190707963076693055, guid: aba123e128b27c74c85863e62688b8e8,
+        type: 3}
+    - target: {fileID: 3178561943342682968, guid: f223c4c00a8ad7d4f84d544bc5e9d13f,
+        type: 3}
+      propertyPath: dirtEndPrefab
+      value: 
+      objectReference: {fileID: 1122243101289550592, guid: 34fd6e2c7055c2f4f88781be2fd47036,
+        type: 3}
     - target: {fileID: 3178561943342682969, guid: f223c4c00a8ad7d4f84d544bc5e9d13f,
         type: 3}
       propertyPath: m_RootOrder
@@ -898,6 +910,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6141463520183036664, guid: 130ccde495a7ca54e985f0a34be06b64,
+        type: 3}
+      propertyPath: normalZombie
+      value: 
+      objectReference: {fileID: 9058593794042222092, guid: 293a9b5ae88fa194eb30aa96a5efafda,
+        type: 3}
     - target: {fileID: 6141463520183036665, guid: 130ccde495a7ca54e985f0a34be06b64,
         type: 3}
       propertyPath: m_RootOrder
