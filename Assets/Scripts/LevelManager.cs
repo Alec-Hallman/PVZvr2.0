@@ -21,7 +21,6 @@ public class LevelManager : MonoBehaviour
     {
         int secondsSinceStart = (int) Mathf.Floor(Time.realtimeSinceStartup - startTime);
         // check if we should spawn a zombie
-        Debug.Log(secondsSinceStart);
         foreach(Zombie zombie in levelData.zombies)
         {
             if (zombie.time == secondsSinceStart)
