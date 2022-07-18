@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8255337678067410909}
   - component: {fileID: 6505439480268791447}
   - component: {fileID: 7737831344412703235}
+  - component: {fileID: 4409491732023336227}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4409491732023336227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875658341668697318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9cebb176b64bb40b8e62e9301ec8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8190707963076693055
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +105,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8854338360531359365}
+  - component: {fileID: 6343252796551157980}
+  - component: {fileID: -7367484533223357197}
   m_Layer: 0
   m_Name: dirt
   m_TagString: Untagged
@@ -115,3 +130,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6343252796551157980
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190707963076693055}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.025988, y: 0.4319753, z: 1.9962564}
+  m_Center: {x: 0.00037956238, y: 0.21165267, z: -0.0020297766}
+--- !u!114 &-7367484533223357197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190707963076693055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76614caf450219844bd186339a11c9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowDirt: {fileID: 2100000, guid: 6a9be92834445b446aff5f11e06f174c, type: 2}
