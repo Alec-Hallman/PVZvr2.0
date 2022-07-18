@@ -105,8 +105,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8854338360531359365}
-  - component: {fileID: 6343252796551157980}
   - component: {fileID: -7367484533223357197}
+  - component: {fileID: -5830116997860384900}
   m_Layer: 0
   m_Name: dirt
   m_TagString: Dirt
@@ -130,19 +130,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6343252796551157980
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8190707963076693055}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.025988, y: 0.4319753, z: 1.9962564}
-  m_Center: {x: 0.00037956238, y: 0.21165267, z: -0.0020297766}
 --- !u!114 &-7367484533223357197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +143,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowDirt: {fileID: 2100000, guid: 6a9be92834445b446aff5f11e06f174c, type: 2}
+  normalDirt: {fileID: 2100000, guid: fac762f124475e64eb30bce484ca3b6b, type: 2}
+--- !u!65 &-5830116997860384900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190707963076693055}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9966428, y: 0.40309188, z: 1.9809284}
+  m_Center: {x: -0.0016981661, y: 0.19514416, z: 0.0033524036}

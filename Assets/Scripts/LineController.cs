@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LineController : MonoBehaviour
 {
-    public GameObject 
-    public float range = 100;
     public Transform controllerPosition;
     // Start is called before the first frame update
     void Start()
@@ -19,9 +17,17 @@ public class LineController : MonoBehaviour
         transform.position = controllerPosition.position;
         transform.rotation = controllerPosition.rotation;
 
-        Ray cursorRay = new Ray(transform.position, transform.forward*range);
-        Physics.Raycast(cursorRay, out hit, 100.0f, 0, QueryTriggerInteraction);
-        Debug.DrawRay(transform.position, transform.forward * range);
+        Ray cursorRay = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(cursorRay, out RaycastHit hit))
+        {
+            Debug.Log(hit.transform.gameObject.tag);
+            if (hit.collider.gameObject.tag == "Dirt")
+            {
+                Debug.Log("Hit dirt");
+                hit.collider.gameObject.GetComponent<DirtGlow>().RaycastHit();
+            }
+        }
+        Debug.DrawRay(transform.position, transform.forward * float.PositiveInfinity);
 
  
 
