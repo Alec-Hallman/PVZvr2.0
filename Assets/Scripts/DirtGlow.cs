@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DirtGlow : MonoBehaviour
+public class DirtGlow : MonoBehaviour, IPointerClickHandler
 {
     public Material glowDirt;
     // Start is called before the first frame update
@@ -25,6 +26,13 @@ public class DirtGlow : MonoBehaviour
     void OnTriggerExit()
     {
         Debug.Log("Hello");
+    }
+
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        Debug.Log("Hello");
+        Debug.Log(pointerEventData);
+        transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = glowDirt;
     }
 
 }
