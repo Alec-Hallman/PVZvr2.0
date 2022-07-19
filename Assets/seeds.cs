@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class seeds : MonoBehaviour
 {
+    
+    public LineController linePointer;
     private bool lastGrab;
     private Vector3 StartPosition;
     private Quaternion StartRotation;
@@ -21,10 +23,29 @@ public class seeds : MonoBehaviour
         bool isGrabbed = GrabCheck.isGrabbed;
         if (isGrabbed == false && lastGrab == true)
         {
+            GetComponent<BoxCollider>().enabled = true;
             GetComponent<Transform>().position = StartPosition;
             GetComponent<Transform>().rotation = StartRotation;
 
+
+        }
+        else if (isGrabbed == true)
+        {
+            GetComponent<BoxCollider>().enabled = false;
+            linePointer.SetSeed(this);
         }
         lastGrab = isGrabbed;
+    }
+    public string GetType()
+    {
+        string name = GetComponent<Renderer>().material.name;
+        if (name.Contains("Peashooter")){
+            return "Peashooter";
+        }
+        if (name.Contains("Sunflower")){
+            return "Sunflower";
+        }
+        return string.Empty;
+        
     }
 }

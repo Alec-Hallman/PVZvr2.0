@@ -37,6 +37,20 @@ public class DirtGlow : MonoBehaviour
     {
         wasHit = true;
     }
+    public void Plant(seeds seed)
+    {
+        if (seed == null)
+        {
+            return;
+        }
+        string type = seed.GetType();
+        Debug.Log(type);
+        if (type == "Peashooter")
+        {
+
+        }
+
+    }
 
 
 
