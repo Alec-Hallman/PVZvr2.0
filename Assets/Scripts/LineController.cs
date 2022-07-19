@@ -23,8 +23,13 @@ public class LineController : MonoBehaviour
             Debug.Log(hit.transform.gameObject.tag);
             if (hit.collider.gameObject.tag == "Dirt")
             {
-                Debug.Log("Hit dirt");
                 hit.collider.gameObject.GetComponent<DirtGlow>().RaycastHit();
+ 
+            }
+            if (hit.collider.gameObject.tag == "Packet")
+            {
+                Debug.Log("Hit Seeds");
+                hit.collider.gameObject.GetComponent<seeds>().RaycastHit();
             }
         }
         Debug.DrawRay(transform.position, transform.forward * float.PositiveInfinity);

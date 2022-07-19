@@ -4,27 +4,49 @@ using UnityEngine;
 
 public class seeds : MonoBehaviour
 {
-    private bool lastGrab;
-    private Vector3 StartPosition;
-    private Quaternion StartRotation;
+    private bool lastHit;
+    public Transform LeftHand;
+    public Transform RightHand;
+    private bool wasHit;
+    private Vector3 startingScale;
+    private Transform parent;
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+    private bool wasGrabbed;
     // Start is called before the first frame update
     void Start()
     {
-        StartPosition = GetComponent<Transform>().position;
-        StartRotation = GetComponent<Transform>().rotation;
+        startingScale = transform.parent.localScale;
+        startPosition = transform.localPosition;
+        startRotation = transform.localRotation;
+        parent = transform.parent;
     }
 
     // Update is called once per frame
     void Update()
     {
-        OVRGrabbable GrabCheck = GetComponent<OVRGrabbable>();
-        bool isGrabbed = GrabCheck.isGrabbed;
-        if (isGrabbed == false && lastGrab == true)
+        transform.rotation = LeftHand.rotation;
+        transform.position = LeftHand.position;
+
+    }
+    void FixedUpdate()
+    {
+        if (wasHit == true)
         {
-            GetComponent<Transform>().position = StartPosition;
-            GetComponent<Transform>().rotation = StartRotation;
+            Debug.Log("Running");
+            transform.parent.localScale = new Vector3(0.05f, 0.05f, 0.05f);
 
         }
-        lastGrab = isGrabbed;
+        else if (wasHit == false && lastHit == false)
+        {
+            transform.parent.localScale = startingScale;
+        }
+        lastHit = wasHit;
+        wasHit = false;
+    }
+    public void RaycastHit()
+    {
+        wasHit = true;
+        Debug.Log("I'm hit!");
     }
 }
