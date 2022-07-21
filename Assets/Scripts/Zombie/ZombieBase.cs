@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
+    private Transform gardenTransform;
+    private Zombie zombie;
     public int startHealth { get { return 200; } }
     public int damage { get { return 100; } }
     protected int health;
@@ -13,6 +15,11 @@ public class ZombieBase : MonoBehaviour
     void Start()
     {
         health = startHealth;
+        gardenTransform = GameObject.FindGameObjectWithTag("Garden").transform;
+        Debug.Log(gardenTransform);
+
+        GetComponent<Transform>().position =
+            new Vector3(gardenTransform.position.x + 20, 0.95f, gardenTransform.position.z + (zombie.lane * 2) - 2);
     }
 
     void Update()
@@ -23,8 +30,8 @@ public class ZombieBase : MonoBehaviour
 
     public void Initialise(Zombie zombie)
     {
-        GetComponent<Transform>().position = 
-            new Vector3(9, 0.85f, zombie.lane * 2);
+        this.zombie = zombie;
+        
     }
 
     public void HitZombie(int damage)
