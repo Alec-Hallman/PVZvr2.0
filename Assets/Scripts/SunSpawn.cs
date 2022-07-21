@@ -15,7 +15,7 @@ public class SunSpawn : MonoBehaviour
         startTime = Time.realtimeSinceStartup;
         lastSecond = Mathf.FloorToInt(Time.realtimeSinceStartup);
         lastSun = lastSecond;
-        nextThreshold = 5 + Random.Range(-2, 2);
+        nextThreshold = 1 + Random.Range(0, 1);
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class SunSpawn : MonoBehaviour
             int z = Random.Range(2, 12);
             sunTransform.position = new Vector3(x, 10, z);
 
-            nextThreshold = 10 + Random.Range(-2, 2);
+            nextThreshold = 1 + Random.Range(0, 1);
             lastSun = secondsSinceStart;
         }
 

@@ -20,16 +20,17 @@ public class LineController : MonoBehaviour
         Ray cursorRay = new Ray(transform.position, transform.forward);
         if (Physics.Raycast(cursorRay, out RaycastHit hit))
         {
-            Debug.Log(hit.transform.gameObject.tag);
             if (hit.collider.gameObject.tag == "Dirt")
             {
                 Debug.Log("Hit dirt");
                 hit.collider.gameObject.GetComponent<DirtGlow>().RaycastHit();
             }
+            else if (hit.collider.gameObject.tag == "Sun")
+            {
+                Debug.Log("Hit sun");
+                hit.collider.gameObject.GetComponent<SunFall>().Collect();
+            }
         }
         Debug.DrawRay(transform.position, transform.forward * float.PositiveInfinity);
-
- 
-
-}
+    }
 }

@@ -9,40 +9,28 @@ public class SunFall : MonoBehaviour
     private float speed;
     private bool hitGround;
     private float startTime;
+    private GameObject player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         speed = 0.1f;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(new Vector3(0, -(speed * Time.smoothDeltaTime), 0), ForceMode.Impulse);
+
+        GetComponent<Transform>().LookAt(player.transform);
+        //rb.AddForce(new Vector3(0, -(speed * Time.smoothDeltaTime), 0), ForceMode.Impulse);
 
         if (hitGround)
         {
             float secondsSinceHit = Time.realtimeSinceStartup - startTime;
             int partialSeconds = (int)Mathf.Floor(secondsSinceHit * 100) % 100;
-            Debug.Log(partialSeconds);
-            if (partialSeconds < 25)
-            {
-                fadeOut();
-            } else if(partialSeconds < 50)
-            {
-                fadeIn();
-            }
-            else if (partialSeconds < 75)
-            {
-                fadeOut();
-            }
-            else
-            {
-                fadeIn();
-            }
-            Debug.Log(secondsSinceHit);
-            if(secondsSinceHit > 5)
+            Blink();
+            if (secondsSinceHit >= 5)
             {
                 Destroy(gameObject);
             }
@@ -50,27 +38,25 @@ public class SunFall : MonoBehaviour
         }
     }
 
-    private void fadeIn()
+    private void Blink()
     {
         Animation animation = GetComponent<Animation>();
-        animation.Play("FadeIn");
+        animation.Play("FadeInOut");
     }
 
-    private void fadeOut()
+    private void OnCollisionEnter(Collision collider)
     {
-        Animation animation = GetComponent<Animation>();
-        animation.Play("FadeOut");
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        Debug.Log("collision!");
         if(collider.gameObject.tag == "Dirt")
         {
             startTime = Time.realtimeSinceStartup;
             hitGround = true;
-            speed = 0;
-            rb.velocity = Vector3.zero;
         }
+    }
+
+    public void Collect()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Player>().AddSun(50);
+        Destroy(gameObject);
     }
 }

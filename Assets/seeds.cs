@@ -7,6 +7,8 @@ public class seeds : MonoBehaviour
     private bool lastGrab;
     private Vector3 StartPosition;
     private Quaternion StartRotation;
+    public LineController lineController;
+    public string seedName;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,6 @@ public class seeds : MonoBehaviour
         {
             GetComponent<Transform>().position = StartPosition;
             GetComponent<Transform>().rotation = StartRotation;
-
         }
         lastGrab = isGrabbed;
     }
