@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Dirt
   - Sun
+  - Seed
+  - Garden
   layers:
   - Default
   - TransparentFX

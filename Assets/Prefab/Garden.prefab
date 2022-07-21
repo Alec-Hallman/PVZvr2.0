@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 3178561943342682968}
   m_Layer: 0
   m_Name: Garden
-  m_TagString: Untagged
+  m_TagString: Garden
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dirtPrefab: {fileID: 7139543088667523241, guid: d7cdbeae941ba634c804074cdf00aa6e,
     type: 3}
+  dirtEndPrefab: {fileID: 0}
