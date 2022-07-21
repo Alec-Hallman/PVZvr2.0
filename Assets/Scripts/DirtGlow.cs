@@ -17,6 +17,7 @@ public class DirtGlow : MonoBehaviour
     {
         wasHit = false;
         lastHit = false;
+        PlantObject = null;
     }
 
     // Update is called once per frame
@@ -40,17 +41,22 @@ public class DirtGlow : MonoBehaviour
     }
     public void Plant(seeds seed)
     {
-        if (seed == null)
+        if (seed == null || PlantObject != null)
         {
             return;
         }
-        string type = seed.GetType();
-        Debug.Log(type);
-        PlantObject = Instantiate(Resources.Load<GameObject>("Prefabs/" + type));
-        Debug.Log(string.Format("x: {0} y: {1} z: {2}", PlantObject.transform.position.x, PlantObject.transform.position.y, PlantObject.transform.position.z));
-        PlantObject.transform.parent = gameObject.transform;
-        PlantObject.transform.localPosition = PlantObject.transform.position;
-        PlantObject.transform.Rotate(0, 90, 0);
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        if (player.PayWithSun(seed.Cost()))
+        {
+            string type = seed.GetType();
+            Debug.Log(type);
+            PlantObject = Instantiate(Resources.Load<GameObject>("Prefabs/" + type));
+            Debug.Log(string.Format("x: {0} y: {1} z: {2}", PlantObject.transform.position.x, PlantObject.transform.position.y, PlantObject.transform.position.z));
+            PlantObject.transform.parent = gameObject.transform;
+            PlantObject.transform.localPosition = PlantObject.transform.position;
+            PlantObject.transform.Rotate(0, 90, 0);
+        }
     }
 
 
