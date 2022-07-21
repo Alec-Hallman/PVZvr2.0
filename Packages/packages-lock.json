@@ -173,6 +173,17 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< Updated upstream
+=======
+    "com.unity.toonshader": {
+      "version": "file:com.unity.toonshader-development-v1/com.unity.toonshader-development-v1/com.unity.toonshader",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "7.0.0"
+      }
+    },
+>>>>>>> Stashed changes
     "com.unity.ugui": {
       "version": "1.0.0",
       "depth": 0,
