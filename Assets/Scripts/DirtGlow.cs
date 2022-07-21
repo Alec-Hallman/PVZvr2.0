@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DirtGlow : MonoBehaviour
 {
+    private GameObject PlantObject;
     public Material glowDirt;
     public Material normalDirt;
     private bool wasHit;
@@ -45,11 +46,11 @@ public class DirtGlow : MonoBehaviour
         }
         string type = seed.GetType();
         Debug.Log(type);
-        if (type == "Peashooter")
-        {
-
-        }
-
+        PlantObject = Instantiate(Resources.Load<GameObject>("Prefabs/" + type));
+        Debug.Log(string.Format("x: {0} y: {1} z: {2}", PlantObject.transform.position.x, PlantObject.transform.position.y, PlantObject.transform.position.z));
+        PlantObject.transform.parent = gameObject.transform;
+        PlantObject.transform.localPosition = PlantObject.transform.position;
+        PlantObject.transform.Rotate(0, 90, 0);
     }
 
 
