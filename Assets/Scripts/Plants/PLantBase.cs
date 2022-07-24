@@ -7,7 +7,7 @@ public class PlantBase : MonoBehaviour
     public int startHealth;
     public int damage { get { return 0; } }
     protected int health;
-    protected float damageSpeed { get { return 1.5f; } }
+    public float damageSpeed;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class PlantBase : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Ouch!");
+       // Debug.Log("Ouch!");
         health -= damage;
         if (health <= 0)
         {

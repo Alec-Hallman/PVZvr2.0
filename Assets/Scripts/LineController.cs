@@ -30,43 +30,55 @@ public class LineController : MonoBehaviour
     void FixedUpdate()
     {
         Ray cursorRay = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(cursorRay, out RaycastHit hit))
+        bool seenDirt = false;
+        foreach (RaycastHit hit in Physics.RaycastAll(cursorRay))
         {
             if (lastCollided == null) {
                 lastCollided = hit.collider;
                 return;
             }
-            
-            if (hit.collider.gameObject.tag == "Dirt")
-            {
 
-                hit.collider.gameObject.GetComponent<DirtGlow>().RaycastHit();
+
+                if (hit.collider.gameObject.tag == "Dirt")
+                {
+                    if (!seenDirt)
+                {
+                    hit.collider.gameObject.GetComponent<DirtGlow>().RaycastHit();
+                    seenDirt = true;
+
+                }
                 if (OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) < 0.1f && TriggerGrabbed == true)
-                {
-                    hit.collider.gameObject.GetComponent<DirtGlow>().Plant(seed);
-                    Debug.Log("Trigger Let Go " + seed);
-                    TriggerGrabbed = false;
-                    this.seed = null;
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Sun")
-            {
-                Debug.Log("Hit sun");
-                if (lastCollided != hit.collider) {
-                    lastIndexTriggerState = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
-                    lastCollided = hit.collider;
+                    {
+                        hit.collider.gameObject.GetComponent<DirtGlow>().Plant(seed);
+                        Debug.Log("Trigger Let Go " + seed);
+                        TriggerGrabbed = false;
+                        this.seed = null;
+                         return;
+                    }
                 }
 
-                if (lastIndexTriggerState < 0.5f && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f)
+                else if (hit.collider.gameObject.tag == "Sun")
                 {
-                    hit.collider.gameObject.GetComponent<SunFall>().Collect();
+                    // Debug.Log("Hit sun");
+                    if (lastCollided != hit.collider)
+                    {
+                        lastIndexTriggerState = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
+                        lastCollided = hit.collider;
+                    }
+
+                    if (lastIndexTriggerState < 0.5f && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f)
+                    {
+                        hit.collider.gameObject.GetComponent<SunFall>().Collect();
+                        return;
+                    }
+                    lastIndexTriggerState = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
+           
                 }
-                lastIndexTriggerState = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
-            }
+            
 
             lastCollided = hit.collider;
         }
-        Debug.DrawRay(transform.position, transform.forward * float.PositiveInfinity);
+       // Debug.DrawRay(transform.position, transform.forward * float.PositiveInfinity);
 
     }
 

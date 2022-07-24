@@ -59,7 +59,7 @@ public class SunFall : MonoBehaviour
     public void Collect()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<Player>().AddSun(50);
+        player.GetComponent<Player>().AddSun(25);
         Destroy(gameObject);
     }
 }

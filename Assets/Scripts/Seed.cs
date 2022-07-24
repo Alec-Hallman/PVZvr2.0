@@ -45,21 +45,28 @@ public class Seed : MonoBehaviour
         }
         lastGrab = isGrabbed;
 
-        if(CooldownFinished())
-        {
-            //UpdateSunCount();
-        }
+ 
     }
 
     public string GetType()
     {
         string name = GetComponentInChildren<Renderer>().material.name;
+        if (name.Contains("Repeater"))
+        {
+            return "Rep";
+            Debug.Log("Repeater Placed");
+        }
         if (name.Contains("Peashooter")){
             return "Pea";
         }
         if (name.Contains("Sunflower")){
             return "Sun";
         }
+        if (name.Contains("Wallnutt"))
+        {
+            return "Nutt";
+        }
+
         return string.Empty;
     }
 
@@ -71,6 +78,14 @@ public class Seed : MonoBehaviour
             return 100;
         }
         if (name.Contains("Sunflower"))
+        {
+            return 50;
+        }
+        if (name.Contains("Repeater"))
+        {
+            return 200;
+        }
+        if (name.Contains("Wallnutt"))
         {
             return 50;
         }

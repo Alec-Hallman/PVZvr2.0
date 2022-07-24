@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: House 2
+  m_Name: EyeBrow
   m_Shader: {fileID: 4800000, guid: 9baf30ce95c751649b14d96da3a4b4d5, type: 3}
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
@@ -220,7 +220,7 @@ Material:
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
-    - _Outline_Width: 0
+    - _Outline_Width: 0.2
     - _Parallax: 0.02
     - _RimLight: 0
     - _RimLight_FeatherOff: 0
@@ -269,18 +269,18 @@ Material:
     - _utsVersionY: 7
     - _utsVersionZ: 6
     m_Colors:
-    - _1st_ShadeColor: {r: 0.7830189, g: 0.64723074, b: 0.4555298, a: 1}
-    - _2nd_ShadeColor: {r: 0.9764706, g: 1, b: 0.69411767, a: 1}
+    - _1st_ShadeColor: {r: 0.19479053, g: 0.46226418, b: 0.20717359, a: 1}
+    - _2nd_ShadeColor: {r: 0.11629284, g: 0.46226418, b: 0.13231005, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.9528302, g: 0.8211382, b: 0.6352201, a: 1}
-    - _Color: {r: 0.95283014, g: 0.8211382, b: 0.6352201, a: 1}
+    - _BaseColor: {r: 0.22929272, g: 0.5566038, b: 0.24390484, a: 1}
+    - _Color: {r: 0.22929269, g: 0.5566037, b: 0.2439048, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
     - _HighColor: {r: 0, g: 0, b: 0, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _ViewShift: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

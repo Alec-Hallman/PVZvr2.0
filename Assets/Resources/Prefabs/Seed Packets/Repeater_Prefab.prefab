@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3646140114802699075}
   - component: {fileID: -1193476774612842163}
   m_Layer: 0
-  m_Name: Sun Flower Packet
+  m_Name: Repeater_Prefab
   m_TagString: Seed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e012bddf3e36041489b6fea0f54dd4ca, type: 2}
+  - {fileID: 2100000, guid: ebf9927532900e5479f29deac9e75046, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

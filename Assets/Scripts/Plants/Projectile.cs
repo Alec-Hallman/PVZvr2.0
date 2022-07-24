@@ -4,24 +4,13 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public float damage;
+    void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void Spawn(GameObject plant)
-    {
-
-
-        string name = plant.name;
-
-        Debug.Log(name);
+        if (collision.gameObject.tag == "Zombie")
+        {
+            collision.gameObject.GetComponent<ZombieBase>().HitZombie(damage);
+            Destroy(gameObject);
+        }
     }
 }
