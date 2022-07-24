@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door_Outline
+  m_Name: 2Roof
   m_Shader: {fileID: 4800000, guid: 9baf30ce95c751649b14d96da3a4b4d5, type: 3}
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
@@ -165,6 +165,7 @@ Material:
     - _CameraRolling_Stabilizer: 0
     - _ClippingMode: 0
     - _Clipping_Level: 0
+    - _ColorMask: 15
     - _ColorShift_Speed: 0
     - _CullMode: 2
     - _Cutoff: 0.5
@@ -220,7 +221,7 @@ Material:
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
-    - _Outline_Width: 0.1
+    - _Outline_Width: 0
     - _Parallax: 0.02
     - _RimLight: 0
     - _RimLight_FeatherOff: 0
@@ -238,11 +239,15 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Stencil: 0
     - _StencilComp: 0
     - _StencilMode: 0
     - _StencilNo: 1
+    - _StencilOp: 0
     - _StencilOpFail: 0
     - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _StepOffset: 0
     - _TransparentEnabled: 0
     - _TweakHighColorOnShadow: 0
@@ -257,6 +262,7 @@ Material:
     - _Tweak_transparency: 0
     - _UVSec: 0
     - _Unlit_Intensity: 0
+    - _UseUIAlphaClip: 0
     - _Use_1stAs2nd: 0
     - _Use_BaseAs1st: 0
     - _ZOverDrawMode: 0
@@ -269,18 +275,18 @@ Material:
     - _utsVersionY: 7
     - _utsVersionZ: 6
     m_Colors:
-    - _1st_ShadeColor: {r: 0.3285867, g: 0.5660378, b: 0.30793875, a: 1}
+    - _1st_ShadeColor: {r: 0.6886792, g: 0.34877983, b: 0.21873139, a: 1}
     - _2nd_ShadeColor: {r: 1, g: 1, b: 1, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.40054587, g: 0.6603774, b: 0.3779518, a: 1}
-    - _Color: {r: 0.40054584, g: 0.6603774, b: 0.37795177, a: 1}
+    - _BaseColor: {r: 0.6901961, g: 0.34901962, b: 0.21960784, a: 1}
+    - _Color: {r: 0.6901961, g: 0.3490196, b: 0.2196078, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
     - _HighColor: {r: 0, g: 0, b: 0, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Outline_Color: {r: 0.6901961, g: 0.34901962, b: 0.21960784, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _ViewShift: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

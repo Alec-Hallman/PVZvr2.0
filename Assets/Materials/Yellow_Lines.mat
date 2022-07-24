@@ -269,12 +269,12 @@ Material:
     - _utsVersionY: 7
     - _utsVersionZ: 6
     m_Colors:
-    - _1st_ShadeColor: {r: 0, g: 0, b: 0, a: 1}
-    - _2nd_ShadeColor: {r: 0, g: 0, b: 0, a: 1}
+    - _1st_ShadeColor: {r: 0.8584906, g: 0.83063334, b: 0.3779518, a: 1}
+    - _2nd_ShadeColor: {r: 0.6981132, g: 0.6788962, b: 0.36661917, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
-    - _Color: {r: 0.16981128, g: 0.16981128, b: 0.16981128, a: 1}
+    - _BaseColor: {r: 1, g: 0.9681835, b: 0.45911944, a: 1}
+    - _Color: {r: 1, g: 0.96818346, b: 0.45911938, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
