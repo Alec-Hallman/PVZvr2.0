@@ -39,7 +39,7 @@ public class DirtGlow : MonoBehaviour
     {
         wasHit = true;
     }
-    public void Plant(seeds seed)
+    public void Plant(Seed seed)
     {
         if (seed == null || PlantObject != null)
         {
@@ -47,7 +47,7 @@ public class DirtGlow : MonoBehaviour
         }
         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        if (player.PayWithSun(seed.Cost()))
+        if (player.PayWithSun(seed))
         {
             string type = seed.GetType();
             Debug.Log(type);
@@ -56,6 +56,7 @@ public class DirtGlow : MonoBehaviour
             PlantObject.transform.parent = gameObject.transform;
             PlantObject.transform.localPosition = PlantObject.transform.position;
             PlantObject.transform.Rotate(0, 90, 0);
+            seed.WasPlanted();
         }
     }
 

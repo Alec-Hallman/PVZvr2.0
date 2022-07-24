@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3382395279912479493}
   - component: {fileID: 5119142766898825941}
   - component: {fileID: 3646140114802699075}
+  - component: {fileID: -1193476774612842163}
   m_Layer: 0
   m_Name: Sun Flower Packet
   m_TagString: Seed
@@ -65,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda60a848a68ebc469a497dd7fe64460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 7.5
   linePointer: {fileID: 0}
 --- !u!65 &5119142766898825941
 BoxCollider:
@@ -95,6 +97,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!111 &-1193476774612842163
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570630950134512933}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 91c2cff00a2b12a469924c5aa5f3da39, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4819959094302410236
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +124,7 @@ GameObject:
   - component: {fileID: 4347592379932415687}
   - component: {fileID: 1478006825226022797}
   - component: {fileID: 2713231039912741657}
+  - component: {fileID: 7857428583413900576}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -178,3 +197,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!111 &7857428583413900576
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819959094302410236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0

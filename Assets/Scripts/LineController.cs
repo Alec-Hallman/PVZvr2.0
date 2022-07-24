@@ -5,10 +5,11 @@ using UnityEngine;
 public class LineController : MonoBehaviour
 {
     private bool TriggerGrabbed;
-    private seeds seed;
+    private Seed seed;
     public Transform controllerPosition;
     private Collider lastCollided;
     private float lastIndexTriggerState;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +70,7 @@ public class LineController : MonoBehaviour
 
     }
 
-    public void SetSeed(seeds seed)
+    public void SetSeed(Seed seed)
     {
         this.seed = seed;
     }

@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class seeds : MonoBehaviour
+public class Seed : MonoBehaviour
 {
+    public float cooldown;
     public LineController linePointer;
     private bool lastGrab;
     private Vector3 StartPosition;
     private Quaternion StartRotation;
+    private float lastPlantedTime;
+    private Animation anim;
+
     // Start is called before the first frame update
     void Start()
     {
         StartPosition = GetComponent<Transform>().position;
         StartRotation = GetComponent<Transform>().rotation;
+        lastPlantedTime = -1f;
+
+        AnimationClip clip = new AnimationClip();
+        AnimationCurve curve = AnimationCurve.Linear(0, 0.5f, cooldown, 1);
+        clip.SetCurve("", typeof(MeshRenderer), "Material._Color.a", curve);
+        anim = GetComponentInChildren<Animation>();
+        anim.AddClip(clip, "Cooldown");
+        clip.wrapMode = WrapMode.Once;
     }
 
     // Update is called once per frame
@@ -32,6 +44,11 @@ public class seeds : MonoBehaviour
             linePointer.SetSeed(this);
         }
         lastGrab = isGrabbed;
+
+        if(CooldownFinished())
+        {
+            //UpdateSunCount();
+        }
     }
 
     public string GetType()
@@ -44,7 +61,6 @@ public class seeds : MonoBehaviour
             return "Sun";
         }
         return string.Empty;
-        
     }
 
     public int Cost()
@@ -64,7 +80,19 @@ public class seeds : MonoBehaviour
     public void UpdateSunCount(int total)
     {
         Material m = GetComponentInChildren<Renderer>().sharedMaterial;
-        if (total >= Cost()) m.color = new Color(1, 1, 1);
+        bool cooldownIsFinished = Time.realtimeSinceStartup - lastPlantedTime >= cooldown;
+        if (total >= Cost() || cooldownIsFinished) m.color = new Color(1, 1, 1);
         else m.color = new Color(0.5f, 0.5f, 0.5f);
+    }
+
+    public void WasPlanted()
+    {
+        lastPlantedTime = Time.realtimeSinceStartup;
+        anim.Play("Cooldown");
+    }
+
+    public bool CooldownFinished()
+    {
+        return Time.realtimeSinceStartup - lastPlantedTime >= cooldown;
     }
 }
