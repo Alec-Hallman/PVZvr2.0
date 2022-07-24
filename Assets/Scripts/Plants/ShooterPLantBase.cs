@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ShooterPLantBase : PLantBase
+public class ShooterPlantBase : PlantBase
 {
     private float startTime;
     public GameObject pea;

@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //Shooter Plant Base
-public class PLantBase : MonoBehaviour
+public class PlantBase : MonoBehaviour
 {
-    public int startHealth { get { return 0; } }
+    public int startHealth;
     public int damage { get { return 0; } }
     protected int health;
     protected float damageSpeed { get { return 1.5f; } }
 
     void Start()
     {
-
         health = startHealth;
     }
 
 
 
-    public void HitPlant(int damage)
+    public void TakeDamage(int damage)
     {
+        Debug.Log("Ouch!");
         health -= damage;
         if (health <= 0)
         {

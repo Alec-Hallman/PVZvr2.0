@@ -10,13 +10,15 @@ public class ZombieBase : MonoBehaviour
     public int damage { get { return 100; } }
     protected int health;
     protected float speed { get { return 0.5f; } }
-    protected int damageSpeed { get { return 60; } } 
+    protected int damageSpeed { get { return 1; } }
+    protected float startTime;
+    protected GameObject currentlyEating;
 
     void Start()
     {
         health = startHealth;
         gardenTransform = GameObject.FindGameObjectWithTag("Garden").transform;
-        Debug.Log(gardenTransform);
+        currentlyEating = null;
 
         GetComponent<Transform>().position =
             new Vector3(gardenTransform.position.x + 20, 0.95f, gardenTransform.position.z + (zombie.lane * 2) - 2);
@@ -26,6 +28,12 @@ public class ZombieBase : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(-(speed * Time.smoothDeltaTime), 0, 0), ForceMode.Impulse);
+
+        if(currentlyEating != null && Time.realtimeSinceStartup - startTime > damageSpeed)
+        {
+            Eat();
+            startTime = Time.realtimeSinceStartup;
+        }
     }
 
     public void Initialise(Zombie zombie)
@@ -43,9 +51,27 @@ public class ZombieBase : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        // TODO implement once we have a plant base
+        Debug.Log(string.Format("Zombie Collided! {0}", collision.collider.gameObject.tag));
+        if (collision.collider.gameObject.tag == "Plant")
+        {
+            currentlyEating = collision.collider.gameObject;
+            startTime = Time.realtimeSinceStartup;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.gameObject == currentlyEating)
+        {
+            currentlyEating = null;
+        }
+    }
+
+    private void Eat()
+    {
+        currentlyEating.GetComponent<PlantBase>().TakeDamage(damage);
     }
 
 }

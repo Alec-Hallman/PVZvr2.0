@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         GameObject[] seedPackets = GameObject.FindGameObjectsWithTag("Seed");
         foreach (GameObject seedObject in seedPackets)
         {
-            seedObject.GetComponent<seeds>().UpdateSunCount(sunCount);
+            seedObject.GetComponent<Seed>().UpdateSunCount(sunCount);
         }
     }
 
@@ -42,10 +42,11 @@ public class Player : MonoBehaviour
         sunCount += value;
     }
 
-    public bool PayWithSun(int cost)
+    public bool PayWithSun(Seed seed)
     {
-        if (cost > sunCount) return false;
-        sunCount -= cost;
+        if (!seed.CooldownFinished()) return false;
+        if (seed.Cost() > sunCount) return false;
+        sunCount -= seed.Cost();
         return true;
     }
 }
