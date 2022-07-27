@@ -513,22 +513,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.5189047, y: 4.7869844, z: 3.9575536}
   m_Center: {x: -1.2594519, y: 0.20622541, z: -0.5637798}
---- !u!114 &-1537030124234299199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503459412618085785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16d1c048ff54b84ba6f6d72bcaa837b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHealth: 200
-  health: 12000000
-  damageSpeed: 0
-  damage: 1200
 --- !u!135 &461041922854942021
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -542,3 +526,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5546669
   m_Center: {x: -1.238777, y: 0.07731534, z: -3.1255143}
+--- !u!114 &-1537030124234299199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503459412618085785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16d1c048ff54b84ba6f6d72bcaa837b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 600
+  health: 0
+  damageSpeed: 0
+  damage: 1200

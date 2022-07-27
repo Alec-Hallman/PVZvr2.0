@@ -13,8 +13,9 @@ public class ShooterPlantBase : PlantBase
     public GameObject pea;
     void Start()
     {
-
+        health = startHealth;
         startTime = Time.realtimeSinceStartup;
+        
     }
 
     void Update()

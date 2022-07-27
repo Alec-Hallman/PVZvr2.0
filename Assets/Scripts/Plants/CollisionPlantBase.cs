@@ -12,7 +12,7 @@ public class CollisionPlantBase : PlantBase
     // Start is called before the first frame update
     void Start()
     {
-
+        health = startHealth;
         startTime = Time.realtimeSinceStartup;
     }
 

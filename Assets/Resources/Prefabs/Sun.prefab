@@ -281,7 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146b8dbbb97daea4aa2f316cc20d255e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 0
+  startHealth: 300
+  health: 0
   damageSpeed: 0
   sunPrefab: {fileID: 6720620784492752810, guid: 0290a9930ff5ab142b2d58b51ea90962,
     type: 3}
