@@ -57,6 +57,7 @@ public class ZombieBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
         //Debug.Log(string.Format("Zombie Collided! {0}", collision.collider.gameObject.tag));
         if (collision.collider.gameObject.tag == "Plant")
         {
@@ -68,6 +69,7 @@ public class ZombieBase : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+
         if (collision.collider.gameObject == currentlyEating)
         {
             currentlyEating = null;
