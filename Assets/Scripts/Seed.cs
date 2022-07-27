@@ -66,6 +66,10 @@ public class Seed : MonoBehaviour
         {
             return "Nutt";
         }
+        if (name.Contains("Chomper"))
+        {
+            return "Chomp";
+        }
 
         return string.Empty;
     }
@@ -86,6 +90,10 @@ public class Seed : MonoBehaviour
             return 200;
         }
         if (name.Contains("Wallnutt"))
+        {
+            return 50;
+        }
+        if (name.Contains("Chomper"))
         {
             return 50;
         }

@@ -310,6 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a6d113e8449434f9f6935990dbb7d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 200
+  startHealth: 600
   damageSpeed: 1.5
   pea: {fileID: 6977038336256700576, guid: 6a80c2b0154c8804da5d43e45b5330dc, type: 3}

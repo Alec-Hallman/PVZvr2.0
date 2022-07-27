@@ -60,6 +60,7 @@ public class ZombieBase : MonoBehaviour
             currentlyEating = collision.collider.gameObject;
             startTime = Time.realtimeSinceStartup;
         }
+  
     }
 
     private void OnCollisionExit(Collision collision)
