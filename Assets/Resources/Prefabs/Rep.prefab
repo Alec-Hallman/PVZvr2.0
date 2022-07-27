@@ -298,7 +298,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.825769, y: 5.167484, z: 5.9871736}
   m_Center: {x: -0.32757413, y: 0.35564756, z: 2.493584}
---- !u!114 &3954120777010703091
+--- !u!114 &8692449959774869282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,9 +307,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6193569682999359128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a6d113e8449434f9f6935990dbb7d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 69055a8b03588804e86e22038218e1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 600
+  health: 0
   damageSpeed: 1.5
   pea: {fileID: 6977038336256700576, guid: 6a80c2b0154c8804da5d43e45b5330dc, type: 3}

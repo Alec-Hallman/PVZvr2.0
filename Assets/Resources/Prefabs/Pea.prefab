@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3029396587194562866}
   - component: {fileID: -6554095241176601966}
-  - component: {fileID: 2597232596718879105}
+  - component: {fileID: 7031729301567586345}
   m_Layer: 8
   m_Name: Pea
   m_TagString: Plant
@@ -228,7 +228,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7249382, y: 5.676592, z: 5.5004683}
   m_Center: {x: -0.36926827, y: 0.43371576, z: 2.6087065}
---- !u!114 &2597232596718879105
+--- !u!114 &7031729301567586345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,10 +237,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2396271835650155400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a6d113e8449434f9f6935990dbb7d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 69055a8b03588804e86e22038218e1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 600
+  health: 0
   damageSpeed: 1.5
   pea: {fileID: 6977038336256700576, guid: 6a80c2b0154c8804da5d43e45b5330dc, type: 3}
 --- !u!1 &2511834222906595767
