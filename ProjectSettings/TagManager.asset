@@ -10,6 +10,7 @@ TagManager:
   - Garden
   - Plant
   - Zombie
+  - slow
   layers:
   - Default
   - TransparentFX

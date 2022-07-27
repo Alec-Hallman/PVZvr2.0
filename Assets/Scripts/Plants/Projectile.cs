@@ -11,6 +11,11 @@ public class Projectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<ZombieBase>().HitZombie(damage);
             Destroy(gameObject);
+            if (gameObject.tag == "slow")
+            {
+                Debug.Log("Frozen");
+                collision.gameObject.GetComponent<Rigidbody>().mass = 20;
+            }
         }
     }
 }

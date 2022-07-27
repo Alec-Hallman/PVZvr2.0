@@ -48,7 +48,6 @@ public class ShooterPlantBase : PlantBase
                 }
                 if (repeat == true && RepeaterOffset < currentTime && shootAgain == true && WaitFrame == true)
                 {
-                    Debug.Log("SecondShot");
                     Shoot();
                     shootAgain = false;
                     startTime = Time.realtimeSinceStartup;
@@ -58,8 +57,6 @@ public class ShooterPlantBase : PlantBase
             
 
         }
-        Debug.Log(currentTime);
-        Debug.Log(RepeaterOffset);
 
     }
     public void Shoot()

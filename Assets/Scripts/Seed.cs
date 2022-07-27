@@ -54,7 +54,6 @@ public class Seed : MonoBehaviour
         if (name.Contains("Repeater"))
         {
             return "Rep";
-            Debug.Log("Repeater Placed");
         }
         if (name.Contains("Peashooter")){
             return "Pea";
@@ -69,6 +68,10 @@ public class Seed : MonoBehaviour
         if (name.Contains("Chomper"))
         {
             return "Chomp";
+        }
+        if (name.Contains("Snow"))
+        {
+            return "Ice";
         }
 
         return string.Empty;
@@ -94,6 +97,10 @@ public class Seed : MonoBehaviour
             return 50;
         }
         if (name.Contains("Chomper"))
+        {
+            return 150;
+        }
+        if (name.Contains("Snow"))
         {
             return 50;
         }

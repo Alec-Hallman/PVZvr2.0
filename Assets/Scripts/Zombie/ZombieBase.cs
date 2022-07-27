@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
+    
     private Transform gardenTransform;
     private Zombie zombie;
     public float startHealth;
@@ -16,6 +17,7 @@ public class ZombieBase : MonoBehaviour
 
     void Start()
     {
+
         health = startHealth;
         gardenTransform = GameObject.FindGameObjectWithTag("Garden").transform;
         currentlyEating = null;
@@ -45,6 +47,7 @@ public class ZombieBase : MonoBehaviour
 
     public void HitZombie(float damage)
     {
+        
         health -= damage;
         if (health <= 0)
         {

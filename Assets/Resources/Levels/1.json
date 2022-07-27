@@ -2,8 +2,7 @@
     "type": "garden",
     "zombies": [
         { "type": "normal", "time": "2", "lane": 1 },
-        { "type": "normal", "time": "4", "lane": 1 },
-        { "type": "normal", "time": "5", "lane": 2 },
+        { "type": "normal", "time": "2", "lane": 2 },
         { "type": "normal", "time": "8", "lane": 3 },
         { "type": "normal", "time": "10", "lane": 4 },
         { "type": "normal", "time": "12", "lane": 5 }
