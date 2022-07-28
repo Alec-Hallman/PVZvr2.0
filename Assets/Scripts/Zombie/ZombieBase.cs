@@ -47,7 +47,6 @@ public class ZombieBase : MonoBehaviour
 
     public void HitZombie(float damage)
     {
-        
         health -= damage;
         if (health <= 0)
         {
@@ -78,7 +77,7 @@ public class ZombieBase : MonoBehaviour
 
     private void Eat()
     {
-        currentlyEating.GetComponent<PlantBase>().TakeDamage(damage);
+        currentlyEating.GetComponent<PlantBase1>().TakeDamage(damage);
     }
 
 }

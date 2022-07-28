@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionPlantBase : PlantBase
+public class CollisionPlantBase : PlantBase1
 {
     Vector3 startPosition;
     Vector3 endPosition;
@@ -16,7 +16,10 @@ public class CollisionPlantBase : PlantBase
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<ParticleSystem>().Stop();
+        if (Names == "Mine")
+        {
+            GetComponent<ParticleSystem>().Stop();
+        }
         startPosition = new Vector3(0.27f, 0.4f, 0f);
         endPosition = new Vector3(0.27f, 0.6f, 0f);
         charged = false;
