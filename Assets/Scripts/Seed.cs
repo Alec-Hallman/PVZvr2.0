@@ -73,6 +73,10 @@ public class Seed : MonoBehaviour
         {
             return "Ice";
         }
+        if (name.Contains("Potato"))
+        {
+            return "Mine";
+        }
 
         return string.Empty;
     }
@@ -101,6 +105,10 @@ public class Seed : MonoBehaviour
             return 150;
         }
         if (name.Contains("Snow"))
+        {
+            return 50;
+        }
+        if (name.Contains("Potato"))
         {
             return 50;
         }

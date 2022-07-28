@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShooterPlantBase1 : PlantBase
+public class ShooterPlantBase1 : PlantBase1
 {
     private bool WaitFrame;
     private bool repeat;

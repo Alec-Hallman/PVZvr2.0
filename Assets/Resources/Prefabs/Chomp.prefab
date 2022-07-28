@@ -541,4 +541,5 @@ MonoBehaviour:
   startHealth: 600
   health: 0
   damageSpeed: 0
+  Names: Chomp
   damage: 1200
