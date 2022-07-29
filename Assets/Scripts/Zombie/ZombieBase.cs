@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
-    
+    private float bodyTime = 2f;
+    private float timer = 0f;
+    private bool dead = false;
+    public GameObject headless;
+    public GameObject head;
     private Transform gardenTransform;
     private Zombie zombie;
     public float startHealth;
@@ -23,12 +27,13 @@ public class ZombieBase : MonoBehaviour
         currentlyEating = null;
 
         GetComponent<Transform>().position =
-            new Vector3(gardenTransform.position.x + 20, 1.45f, gardenTransform.position.z + (zombie.lane * 2) - 2);
-            new Vector3(gardenTransform.position.x + 20, 1.45f, gardenTransform.position.z + (zombie.lane * 2) - 2);
+            new Vector3(gardenTransform.position.x + 20, 0.49f, gardenTransform.position.z + (zombie.lane * 2) - 2);
+            new Vector3(gardenTransform.position.x + 20, 0.49f, gardenTransform.position.z + (zombie.lane * 2) - 2);
     }
 
     void Update()
     {
+
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(-(speed * Time.smoothDeltaTime * 10), 0, 0), ForceMode.Impulse);
 
@@ -50,7 +55,11 @@ public class ZombieBase : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            GameObject headlessboi = Instantiate(headless);
+            GameObject heads = Instantiate(head);
+            headlessboi.transform.position = transform.position;
+            heads.transform.position = transform.position;
+            Destroy(gameObject);
         }
     }
 
@@ -79,5 +88,8 @@ public class ZombieBase : MonoBehaviour
     {
         currentlyEating.GetComponent<PlantBase1>().TakeDamage(damage);
     }
+    void FixedUpdate()
+    {
 
+    }
 }
