@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunPlant : PlantBase
+public class SunPlant : PlantBase1
 {
     public GameObject sunPrefab;
     public int sunValue;
@@ -11,6 +11,7 @@ public class SunPlant : PlantBase
     // Start is called before the first frame update
     void Start()
     {
+        dead = false;
         health = startHealth;
         startTime = Time.realtimeSinceStartup;
     }
@@ -18,7 +19,11 @@ public class SunPlant : PlantBase
     // Update is called once per frame
     void Update()
     {
-        if(Time.realtimeSinceStartup - startTime > sunSpeed)
+        if (dead == true)
+        {
+            Destroy(gameObject);
+        }
+        if (Time.realtimeSinceStartup - startTime > sunSpeed)
         {
             startTime = Time.realtimeSinceStartup;
             // produce a sun

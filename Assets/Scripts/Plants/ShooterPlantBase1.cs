@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShooterPlantBase1 : PlantBase1
 {
+    private string name;
     private int ammountZombies = 0;
     private bool exists = false;
     private GameObject Shooter;
@@ -25,8 +26,12 @@ public class ShooterPlantBase1 : PlantBase1
     void Update()
     {
 
-
-        string name = gameObject.name;
+        if (dead == true)
+        {
+            Destroy(Shooter);
+            Destroy(gameObject);
+        }
+        name = gameObject.name;
         if (name.Contains("Rep"))
         {
             repeat = true;
@@ -95,7 +100,16 @@ public class ShooterPlantBase1 : PlantBase1
         GameObject newPea = Instantiate(pea);
         Rigidbody peaBody = newPea.GetComponent<Rigidbody>();
         Vector3 pos = transform.position;
-        newPea.transform.position = new Vector3(pos.x + 0.5f, pos.y + 0.1f, pos.z);
+        if (name.Contains("Rep"))
+        {
+            newPea.transform.position = new Vector3(pos.x + 0.5f, pos.y + 0.1f, pos.z);
+
+        }
+        if (name.Contains("Ice") || name.Contains("Pea"))
+        {
+            newPea.transform.position = new Vector3(pos.x + 0.2f, pos.y + 0.19f, pos.z);
+
+        }
         peaBody.AddForce(new Vector3(0.3f, 0, 0), ForceMode.Impulse);
     }
 

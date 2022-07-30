@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlantBase1 : MonoBehaviour
 {
+    public bool dead = false;
     public int startHealth;
     public int damage { get { return 0; } }
     public int health;
@@ -21,7 +22,8 @@ public class PlantBase1 : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            dead = true;
+            //Destroy(gameObject);
         }
     }
 

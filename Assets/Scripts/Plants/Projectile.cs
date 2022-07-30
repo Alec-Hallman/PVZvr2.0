@@ -33,10 +33,7 @@ public class Projectile : MonoBehaviour
             animating = true;
             particleSystem.Play();
             collision.gameObject.GetComponent<ZombieBase>().HitZombie(damage);
-            if (gameObject.tag == "slow")
-            {
-                collision.gameObject.GetComponent<Rigidbody>().mass = 20;
-            }
+
             Destroy(gameObject.GetComponent<Renderer>());
             Destroy(gameObject.GetComponent<SphereCollider>());
 
