@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ShooterPlantBase1 : PlantBase1
 {
+    private int ammountZombies = 0;
+    private bool exists = false;
+    private GameObject Shooter;
+    public GameObject shooting;
     private bool WaitFrame2;
     private bool WaitFrame;
     private bool repeat;
@@ -27,10 +31,17 @@ public class ShooterPlantBase1 : PlantBase1
         {
             repeat = true;
         }
+ 
+
+    }
+    void FixedUpdate()
+    {
+        ammountZombies = 0;
         Ray detectZomb = new Ray(transform.position, transform.forward);
         float currentTime = Time.realtimeSinceStartup - startTime;
         WaitFrame = true;
         Rigidbody rb = GetComponent<Rigidbody>();
+
 
 
         foreach (RaycastHit hit in Physics.RaycastAll(detectZomb))
@@ -38,6 +49,20 @@ public class ShooterPlantBase1 : PlantBase1
 
             if (hit.collider.gameObject.tag == "Zombie")
             {
+                ammountZombies = ammountZombies + 1;
+                // Make animations for pea shooter and ice shooter
+                if (exists == false)
+                {
+                    exists = true;
+                    foreach (var r in GetComponentsInChildren<Renderer>())
+                    {
+                        r.enabled = false;
+                    }
+                    Shooter = Instantiate(shooting);
+                    Shooter.transform.position = transform.position;
+                    Shooter.transform.rotation = transform.rotation;
+
+                }
                 if (currentTime > damageSpeed && WaitFrame2 == true)
                 {
                     WaitFrame2 = false;
@@ -51,15 +76,19 @@ public class ShooterPlantBase1 : PlantBase1
                 {
                     Shoot();
                     shootAgain = false;
-                    startTime = Time.realtimeSinceStartup;
 
                 }
             }
-
-
+        }
+        if (ammountZombies == 0)
+        {
+            foreach (var r in GetComponentsInChildren<Renderer>())
+            {
+                r.enabled = true;
+            }
+            Destroy(Shooter);
         }
         WaitFrame2 = true;
-
     }
     public void Shoot()
     {

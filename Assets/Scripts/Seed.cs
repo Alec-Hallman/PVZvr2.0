@@ -53,10 +53,10 @@ public class Seed : MonoBehaviour
         string name = GetComponentInChildren<Renderer>().material.name;
         if (name.Contains("Repeater"))
         {
-            return "Rep";
+            return "Rep3";
         }
         if (name.Contains("Peashooter")){
-            return "p";
+            return "Pea";
         }
         if (name.Contains("Sunflower")){
             return "Sun";
