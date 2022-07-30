@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
+    private float counter;
+    private float slowedTimer = 10f;
+    private bool slowed;
     private float bodyTime = 2f;
     private float timer = 0f;
     private bool dead = false;
@@ -17,15 +20,20 @@ public class ZombieBase : MonoBehaviour
     protected float speed { get { return 0.45f; } }
     protected int damageSpeed { get { return 1; } }
     protected float startTime;
+    protected float startTime2;
     protected GameObject currentlyEating;
+
+    void Timer()
+    {
+        startTime2 = Time.realtimeSinceStartup;
+
+    }
 
     void Start()
     {
-
         health = startHealth;
         gardenTransform = GameObject.FindGameObjectWithTag("Garden").transform;
         currentlyEating = null;
-
         GetComponent<Transform>().position =
             new Vector3(gardenTransform.position.x + 20, 0.49f, gardenTransform.position.z + (zombie.lane * 2) - 2);
             new Vector3(gardenTransform.position.x + 20, 0.49f, gardenTransform.position.z + (zombie.lane * 2) - 2);
@@ -33,7 +41,20 @@ public class ZombieBase : MonoBehaviour
 
     void Update()
     {
+        if (slowed == true)
+        {
+            counter = Time.realtimeSinceStartup - startTime2;
+            gameObject.GetComponent<Rigidbody>().mass = 20;
+            GetComponent<Animator>().speed = 0.5f;
+            if (counter > slowedTimer)
+            {
+                Debug.Log("UnFroze");
+                gameObject.GetComponent<Rigidbody>().mass = 10;
+                GetComponent<Animator>().speed = 1;
 
+                slowed = false;
+            }
+        }
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(-(speed * Time.smoothDeltaTime * 10), 0, 0), ForceMode.Impulse);
 
@@ -72,7 +93,11 @@ public class ZombieBase : MonoBehaviour
             currentlyEating = collision.collider.gameObject;
             startTime = Time.realtimeSinceStartup;
         }
-  
+        if (collision.collider.gameObject.tag == "slow")
+        {
+            Timer();
+            slowed = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision)

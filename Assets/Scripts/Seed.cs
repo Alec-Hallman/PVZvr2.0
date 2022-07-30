@@ -56,7 +56,7 @@ public class Seed : MonoBehaviour
             return "Rep";
         }
         if (name.Contains("Peashooter")){
-            return "Pea";
+            return "p";
         }
         if (name.Contains("Sunflower")){
             return "Sun";

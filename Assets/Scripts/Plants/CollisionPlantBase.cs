@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionPlantBase : PlantBase1
 {
+    public GameObject explosion;
     Vector3 startPosition;
     Vector3 endPosition;
     public string Names;
@@ -94,6 +95,8 @@ public class CollisionPlantBase : PlantBase1
         }
         if (charged == true && Names.Contains("Mine"))
         {
+            GameObject explosive = Instantiate(explosion);
+            explosive.transform.position = transform.position;
             collision.gameObject.GetComponent<ZombieBase>().HitZombie(damage);
             Destroy(gameObject);
         }

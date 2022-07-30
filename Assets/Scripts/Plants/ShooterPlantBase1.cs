@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShooterPlantBase1 : PlantBase1
 {
+    private bool WaitFrame2;
     private bool WaitFrame;
     private bool repeat;
     private bool shootAgain;
@@ -37,8 +38,9 @@ public class ShooterPlantBase1 : PlantBase1
 
             if (hit.collider.gameObject.tag == "Zombie")
             {
-                if (currentTime > damageSpeed)
+                if (currentTime > damageSpeed && WaitFrame2 == true)
                 {
+                    WaitFrame2 = false;
                     startTime = Time.realtimeSinceStartup;
                     Shoot();
                     shootAgain = true;
@@ -56,6 +58,7 @@ public class ShooterPlantBase1 : PlantBase1
 
 
         }
+        WaitFrame2 = true;
 
     }
     public void Shoot()

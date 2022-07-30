@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         if(animating == true)
         {
             currentTime = currentTime + 0.04f;
-            if (currentTime > 1f)
+            if (currentTime > 0.9f)
             {
                Destroy(gameObject);
             }
@@ -38,7 +38,8 @@ public class Projectile : MonoBehaviour
                 collision.gameObject.GetComponent<Rigidbody>().mass = 20;
             }
             Destroy(gameObject.GetComponent<Renderer>());
-            
+            Destroy(gameObject.GetComponent<SphereCollider>());
+
         }
     }
 
