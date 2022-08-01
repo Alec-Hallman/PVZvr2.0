@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CollisionPlantBase : PlantBase1
 {
+    private GameObject consuming;
+    private GameObject bite;
+    private bool munchin;
+    public GameObject eating;
     public GameObject eat;
     public GameObject explosion;
     Vector3 startPosition;
@@ -66,6 +70,14 @@ public class CollisionPlantBase : PlantBase1
         {
             if (Chewing == true)
             {
+                if (munchin == false)
+                {
+                    consuming = Instantiate(eating);
+                    consuming.transform.position = transform.position;
+                    consuming.transform.rotation = transform.rotation;
+                    Destroy(bite);
+                    munchin = true;
+                }
                 gameObject.GetComponent<SphereCollider>().enabled = true; //enable sphere collider
                 float currentTime = Time.realtimeSinceStartup - startTime;
                 if (currentTime > chewTime)
@@ -77,6 +89,15 @@ public class CollisionPlantBase : PlantBase1
             }
             else //if chewing is false
             {
+                if (munchin == true)
+                {
+                    foreach (var r in GetComponentsInChildren<Renderer>())
+                    {
+                        r.enabled = true;
+                    }
+                    Destroy(consuming);
+                    munchin = false;
+                }
                 gameObject.GetComponent<SphereCollider>().enabled = false; // disable sphere collider\
               //hey bro So this sphere makes it so that the zombie collides with the sphere and not the cube. So essentially the next zombie hits the sphere if the chomper is chewing
               //and if the chomper finishes before it dies the zombie will walk a very small ammount re colliding with the chomper and dying.
@@ -107,7 +128,7 @@ public class CollisionPlantBase : PlantBase1
     {
         if (Names.Contains("Chomp") && Chewing == false)
         {
-            var bite = Instantiate(eat);
+             bite = Instantiate(eat);
             bite.transform.position = transform.position;
             bite.transform.rotation = transform.rotation;
             foreach (var r in GetComponentsInChildren<Renderer>())

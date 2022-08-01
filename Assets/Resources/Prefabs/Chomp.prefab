@@ -461,6 +461,7 @@ MonoBehaviour:
   startHealth: 600
   health: 0
   damageSpeed: 0
+  eating: {fileID: 8391145855351477310, guid: 1e41b0b060acfe54e97412b09af4f696, type: 3}
   eat: {fileID: 6179388191262277562, guid: 3216c7d20905f9d4291e2a698f7b7259, type: 3}
   explosion: {fileID: 0}
   Names: Chomp

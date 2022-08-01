@@ -76,9 +76,13 @@ public class ZombieBase : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            GameObject headlessboi = Instantiate(headless);
+            if (damage != 1200) //if you got hit by a chomper cause they do 1200 damage
+            {
+                GameObject headlessboi = Instantiate(headless);
+                headlessboi.transform.position = transform.position;
+            }
             GameObject heads = Instantiate(head);
-            headlessboi.transform.position = transform.position;
+
             heads.transform.position = transform.position;
             Destroy(gameObject);
         }
