@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArmorBase : PlantBase1
 {
+    
     GameObject hurt2;
     GameObject hurt1;
     private bool exists = false;
@@ -19,6 +20,7 @@ public class ArmorBase : PlantBase1
     // Update is called once per frame
     void Update()
     {
+
         Debug.Log(health);
         if (dead == true)
         {

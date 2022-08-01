@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollisionPlantBase : PlantBase1
 {
+    public GameObject eat;
     public GameObject explosion;
     Vector3 startPosition;
     Vector3 endPosition;
@@ -88,6 +89,7 @@ public class CollisionPlantBase : PlantBase1
         if (collision.gameObject.tag == "Zombie" && Chewing == false && Names.Contains("Chomp"))
         {
             collision.gameObject.GetComponent<ZombieBase>().HitZombie(damage);
+           
             Chewing = true;
             Start();
 
@@ -99,6 +101,19 @@ public class CollisionPlantBase : PlantBase1
             explosive.transform.position = transform.position;
             collision.gameObject.GetComponent<ZombieBase>().HitZombie(damage);
             Destroy(gameObject);
+        }
+    }
+    void OnTriggerEnter()
+    {
+        if (Names.Contains("Chomp") && Chewing == false)
+        {
+            var bite = Instantiate(eat);
+            bite.transform.position = transform.position;
+            bite.transform.rotation = transform.rotation;
+            foreach (var r in GetComponentsInChildren<Renderer>())
+            {
+                r.enabled = false;
+            }
         }
     }
 }
