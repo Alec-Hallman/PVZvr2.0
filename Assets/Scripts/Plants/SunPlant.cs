@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SunPlant : PlantBase1
 {
+    private float firstSun;
+    private float Counter;
     public GameObject sunPrefab;
     public int sunValue;
     public float sunSpeed;
@@ -11,6 +13,8 @@ public class SunPlant : PlantBase1
     // Start is called before the first frame update
     void Start()
     {
+        float thing = Random.Range(16f,20f);
+        firstSun = thing;
         dead = false;
         health = startHealth;
         startTime = Time.realtimeSinceStartup;
@@ -23,8 +27,10 @@ public class SunPlant : PlantBase1
         {
             Destroy(gameObject);
         }
-        if (Time.realtimeSinceStartup - startTime > sunSpeed)
+        Counter = Time.realtimeSinceStartup - startTime;
+        if (Counter + firstSun > sunSpeed)
         {
+            firstSun = 0;
             startTime = Time.realtimeSinceStartup;
             // produce a sun
             GameObject newSun = Instantiate(sunPrefab);
@@ -32,5 +38,6 @@ public class SunPlant : PlantBase1
             newSun.GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
             newSun.GetComponent<Rigidbody>().AddForce(Vector3.right, ForceMode.Impulse);
         }
+        Debug.Log(Counter);
     }
 }

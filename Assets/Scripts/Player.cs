@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sunCount = 0;
+        sunCount = 50;
     }
 
     // Update is called once per frame

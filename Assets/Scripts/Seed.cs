@@ -77,6 +77,10 @@ public class Seed : MonoBehaviour
         {
             return "Mine";
         }
+        if (name.Contains("Cherrie"))
+        {
+            return "Cher";
+        }
 
         return string.Empty;
     }
@@ -109,6 +113,10 @@ public class Seed : MonoBehaviour
             return 50;
         }
         if (name.Contains("Potato"))
+        {
+            return 50;
+        }
+        if (name.Contains("Cherrie"))
         {
             return 50;
         }

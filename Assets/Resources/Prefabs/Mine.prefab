@@ -5128,13 +5128,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16d1c048ff54b84ba6f6d72bcaa837b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   startHealth: 600
   health: 0
   damageSpeed: 0
+  eating: {fileID: 0}
+  eat: {fileID: 0}
   explosion: {fileID: 8028320301342232940, guid: 5a7565f3ef719504dbcf128784420105,
     type: 3}
   Names: Mine
-  damage: 9000
+  damage: 900
 --- !u!4 &4337364765742415909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3eb4d12acd7f42a4a98ac8c0ca3575c0,
