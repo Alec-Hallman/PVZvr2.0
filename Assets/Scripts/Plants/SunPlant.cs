@@ -38,6 +38,6 @@ public class SunPlant : PlantBase1
             newSun.GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
             newSun.GetComponent<Rigidbody>().AddForce(Vector3.right, ForceMode.Impulse);
         }
-        Debug.Log(Counter);
+     
     }
 }

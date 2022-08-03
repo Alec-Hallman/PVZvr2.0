@@ -1,7 +1,11 @@
-{
+{	
+    "a": 1,
     "type": "garden",
     "zombies": [
-        { "type": "normal", "time": "19", "lane": 1 }
+	{ "type": "normal", "time": "1", "lane": 1 },
+	{ "type": "normal", "time": "1", "lane": 2 }
+
 
     ]
+
 }

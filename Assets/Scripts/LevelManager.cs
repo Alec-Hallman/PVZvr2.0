@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public int a;
     public int level;
     public GameObject normalZombie;
     private float startTime;
@@ -11,14 +12,17 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         startTime = Time.realtimeSinceStartup;
         TextAsset levelJson = Resources.Load<TextAsset>(string.Format("Levels/{0}", level));
         levelData = JsonUtility.FromJson<Level>(levelJson.text);
+  
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(a);
         int secondsSinceStart = (int) Mathf.Floor(Time.realtimeSinceStartup - startTime);
         // check if we should spawn a zombie
         foreach(Zombie zombie in levelData.zombies)
@@ -29,6 +33,7 @@ public class LevelManager : MonoBehaviour
                 SpawnZombie(zombie);
             }
         }
+
 
     }
 

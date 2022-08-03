@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
+    private Animator controller;
     private float counter;
     private float slowedTimer = 10f;
     private bool slowed;
@@ -18,7 +19,7 @@ public class ZombieBase : MonoBehaviour
     public int damage { get { return 100; } }
     protected float health;
     protected float speed { get { return 0.45f; } }
-    protected int damageSpeed { get { return 1; } }
+    private int damageSpeed = 1;
     protected float startTime;
     protected float startTime2;
     protected GameObject currentlyEating;
@@ -31,6 +32,8 @@ public class ZombieBase : MonoBehaviour
 
     void Start()
     {
+        GetComponent<ParticleSystem>().Stop();
+        controller = GetComponent<Animator>();
         health = startHealth;
         gardenTransform = GameObject.FindGameObjectWithTag("Garden").transform;
         currentlyEating = null;
@@ -43,6 +46,7 @@ public class ZombieBase : MonoBehaviour
     {
         if (slowed == true)
         {
+            damageSpeed = 2;
             counter = Time.realtimeSinceStartup - startTime2;
             gameObject.GetComponent<Rigidbody>().mass = 20;
             GetComponent<Animator>().speed = 0.5f;
@@ -51,6 +55,7 @@ public class ZombieBase : MonoBehaviour
                 Debug.Log("UnFroze");
                 gameObject.GetComponent<Rigidbody>().mass = 10;
                 GetComponent<Animator>().speed = 1;
+                damageSpeed = 1;
 
                 slowed = false;
             }
@@ -58,11 +63,23 @@ public class ZombieBase : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(-(speed * Time.smoothDeltaTime * 10), 0, 0), ForceMode.Impulse);
 
-        if(currentlyEating != null && Time.realtimeSinceStartup - startTime > damageSpeed)
+        if(currentlyEating != null)
         {
-            Eat();
-            startTime = Time.realtimeSinceStartup;
+            controller.SetBool("IsEating", true);
+            if (Time.realtimeSinceStartup - startTime > damageSpeed)
+            {
+                Eat();
+                startTime = Time.realtimeSinceStartup;
+                GetComponent<ParticleSystem>().Play();
+
+            }
+
         }
+        if (currentlyEating == null)
+        {
+            controller.SetBool("IsEating", false);
+        }
+
     }
 
     public void Initialise(Zombie zombie)
@@ -109,6 +126,7 @@ public class ZombieBase : MonoBehaviour
 
         if (collision.collider.gameObject == currentlyEating)
         {
+
             currentlyEating = null;
         }
     }

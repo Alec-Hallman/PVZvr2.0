@@ -28375,6 +28375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3178561943342682968, guid: f223c4c00a8ad7d4f84d544bc5e9d13f,
         type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1692648434}
+    - target: {fileID: 3178561943342682968, guid: f223c4c00a8ad7d4f84d544bc5e9d13f,
+        type: 3}
       propertyPath: dirtPrefab
       value: 
       objectReference: {fileID: 8190707963076693055, guid: aba123e128b27c74c85863e62688b8e8,
@@ -28913,6 +28918,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f087e21da52644c45b3ec7147376148c, type: 3}
+--- !u!1 &1692648434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6141463520183036647, guid: 130ccde495a7ca54e985f0a34be06b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 2057433446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1697334547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36688,6 +36699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141463520183036664, guid: 130ccde495a7ca54e985f0a34be06b64,
+        type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6141463520183036664, guid: 130ccde495a7ca54e985f0a34be06b64,
         type: 3}
