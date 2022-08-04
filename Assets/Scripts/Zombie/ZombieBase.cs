@@ -10,7 +10,7 @@ public class ZombieBase : MonoBehaviour
     private bool slowed;
     private float bodyTime = 2f;
     private float timer = 0f;
-    private bool dead = false;
+    public bool dead = false;
     public GameObject headless;
     public GameObject head;
     private Transform gardenTransform;
@@ -99,7 +99,6 @@ public class ZombieBase : MonoBehaviour
                 headlessboi.transform.position = transform.position;
             }
             GameObject heads = Instantiate(head);
-
             heads.transform.position = transform.position;
             Destroy(gameObject);
         }

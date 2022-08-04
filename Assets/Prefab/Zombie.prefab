@@ -5923,6 +5923,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12cc81162f0bb74b9b800f105fff2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Progress: {fileID: 4256717661387056246, guid: 881f0bdbb8b4ebf448373263ef725ae8,
+    type: 3}
+  dead: 0
   headless: {fileID: 5780765010208277866, guid: c814270098d0aa94e85d2e498656d8c8,
     type: 3}
   head: {fileID: 5382269845201170658, guid: cb47ebff11860b24cabbebd15ce06cd4, type: 3}
