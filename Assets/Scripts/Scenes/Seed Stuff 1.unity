@@ -706,6 +706,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1631501836465474760, guid: 5393191f78fb475469b2f8f8ad13717a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1944934103414493902, guid: 5393191f78fb475469b2f8f8ad13717a,
         type: 3}
       propertyPath: linePointer
@@ -791,6 +796,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8886797756090597137, guid: 5393191f78fb475469b2f8f8ad13717a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9141820104808943254, guid: 5393191f78fb475469b2f8f8ad13717a,
         type: 3}
       propertyPath: m_Name
@@ -802,6 +812,7 @@ PrefabInstance:
     - {fileID: 243639531423530759, guid: 5393191f78fb475469b2f8f8ad13717a, type: 3}
     - {fileID: 8960176156284397013, guid: 5393191f78fb475469b2f8f8ad13717a, type: 3}
     - {fileID: 1944934103414493902, guid: 5393191f78fb475469b2f8f8ad13717a, type: 3}
+    - {fileID: 7038678957552739389, guid: 5393191f78fb475469b2f8f8ad13717a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5393191f78fb475469b2f8f8ad13717a, type: 3}
 --- !u!1 &46390865 stripped
 GameObject:

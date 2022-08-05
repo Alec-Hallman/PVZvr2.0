@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
         set {
             _sunCount = value;
             sunCounter.text = string.Format("{0}", _sunCount);
-           
         }
     }
     public TMPro.TextMeshProUGUI sunCounter;
