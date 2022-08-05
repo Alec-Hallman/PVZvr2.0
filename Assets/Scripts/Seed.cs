@@ -18,18 +18,26 @@ public class Seed : MonoBehaviour
         StartPosition = GetComponent<Transform>().position;
         StartRotation = GetComponent<Transform>().rotation;
         lastPlantedTime = -1f;
-
-        AnimationClip clip = new AnimationClip();
-        AnimationCurve curve = AnimationCurve.Linear(0, 0.5f, cooldown, 1);
-        clip.SetCurve("", typeof(MeshRenderer), "Material._Color.a", curve);
-        anim = GetComponentInChildren<Animation>();
-        anim.AddClip(clip, "Cooldown");
-        clip.wrapMode = WrapMode.Once;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Material m = GetComponentInChildren<Renderer>().sharedMaterial;
+        bool cooldownIsFinished = Time.realtimeSinceStartup - lastPlantedTime >= cooldown;
+        if (cooldownIsFinished == true)
+        {
+
+            m.color = new Color(1, 1, 1);
+
+        }
+        else
+        {
+
+            m.color = new Color(0.5f, 0.5f, 0.5f);
+
+        }
+
         OVRGrabbable GrabCheck = GetComponent<OVRGrabbable>();
         bool isGrabbed = GrabCheck.isGrabbed;
         if (isGrabbed == false && lastGrab == true)
@@ -114,7 +122,7 @@ public class Seed : MonoBehaviour
         }
         if (name.Contains("Potato"))
         {
-            return 50;
+            return 25;
         }
         if (name.Contains("Cherrie"))
         {
@@ -123,18 +131,9 @@ public class Seed : MonoBehaviour
         throw new System.Exception("No such cost exists");
     }
 
-    public void UpdateSunCount(int total)
-    {
-        Material m = GetComponentInChildren<Renderer>().sharedMaterial;
-        bool cooldownIsFinished = Time.realtimeSinceStartup - lastPlantedTime >= cooldown;
-        if (total >= Cost() || cooldownIsFinished) m.color = new Color(1, 1, 1);
-        else m.color = new Color(0.5f, 0.5f, 0.5f);
-    }
-
     public void WasPlanted()
     {
         lastPlantedTime = Time.realtimeSinceStartup;
-        anim.Play("Cooldown");
     }
 
     public bool CooldownFinished()

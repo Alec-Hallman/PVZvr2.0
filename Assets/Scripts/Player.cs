@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
         set {
             _sunCount = value;
             sunCounter.text = string.Format("{0}", _sunCount);
-            UpdateSeeds();
+           
         }
     }
     public TMPro.TextMeshProUGUI sunCounter;
@@ -28,14 +28,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void UpdateSeeds()
-    {
-        GameObject[] seedPackets = GameObject.FindGameObjectsWithTag("Seed");
-        foreach (GameObject seedObject in seedPackets)
-        {
-            seedObject.GetComponent<Seed>().UpdateSunCount(sunCount);
-        }
-    }
+
 
     public void AddSun(int value)
     {
