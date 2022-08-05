@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
+    private int Ddead = 0;
     private Animator controller;
     private float counter;
     private float slowedTimer = 10f;
@@ -23,6 +24,7 @@ public class ZombieBase : MonoBehaviour
     protected float startTime;
     protected float startTime2;
     protected GameObject currentlyEating;
+    private GameObject progress;
 
     void Timer()
     {
@@ -93,6 +95,10 @@ public class ZombieBase : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            progress = GameObject.Find("ConputerScreen");
+            Ddead = progress.GetComponent<LevelProgression>().deads;
+            Ddead = Ddead + 1;
+            progress.GetComponent<LevelProgression>().deads = Ddead;
             if (damage != 1200) //if you got hit by a chomper cause they do 1200 damage
             {
                 GameObject headlessboi = Instantiate(headless);

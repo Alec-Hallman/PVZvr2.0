@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea67f0995504c44c9bc17c9f245ab2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deads: 0
   totalZombies: 0
   progressMax: 0.2188581
   progress: 0

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class LevelProgression : MonoBehaviour
 {
-    private int dead = 0;
+    private bool Animate;
+    private int lastDeads = 0;
+    private float interval = 0f;
+    private Vector3 startPosition;
+    public int deads = 0;
     private int something = 0;
     public int totalZombies;
     public float progressMax = 0.2188581f;
@@ -14,7 +18,7 @@ public class LevelProgression : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dead = 0;
+        startPosition = new Vector3 (0.08959901f, 0.01098074f, 0f);
     }
 
     // Update is called once per frame
@@ -25,10 +29,27 @@ public class LevelProgression : MonoBehaviour
             totalZombies = Controller.GetComponent<LevelManager>().Zomb;
             progressInterval = progressMax / totalZombies;
         }
+        progress = progressInterval * deads;
+        Vector3 endPosition = new Vector3 (0.08959901f, 0.01098074f, progress);
+        if(lastDeads != deads)
+        {
+            Animate = true;
+        }
+        if (Animate == true)
+        {
+            transform.localScale = Vector3.Slerp(startPosition, endPosition, interval);
+            interval = interval + 0.01f;
+            if (interval >= 1)
+            {
+                interval = 0f;
+                Animate = false;
+                startPosition = endPosition;
+            }
+        }
 
-        transform.localScale = new Vector3(0.08959901f, 0.01098074f, progress);
 
+        Debug.Log(deads);
 
-        Debug.Log(dead);
+        lastDeads = deads;
     }
 }
