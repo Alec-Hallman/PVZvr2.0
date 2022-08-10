@@ -20,7 +20,7 @@ public class Garden : MonoBehaviour
 
         if (currentLevel == 1)
         {
-            RowCounter = 2;
+            RowCounter = 5;
         }
         if (currentLevel == 2 || currentLevel == 3)
         {
