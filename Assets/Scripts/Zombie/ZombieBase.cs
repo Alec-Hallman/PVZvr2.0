@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieBase : MonoBehaviour
 {
+    public Material[] skin;
     private int Ddead = 0;
     private Animator controller;
     private float counter;
@@ -25,6 +26,7 @@ public class ZombieBase : MonoBehaviour
     protected float startTime2;
     protected GameObject currentlyEating;
     private GameObject progress;
+    private Transform zombiebody;
 
     void Timer()
     {
@@ -34,6 +36,7 @@ public class ZombieBase : MonoBehaviour
 
     void Start()
     {
+        zombiebody = transform.Find("ZombieBody");
         GetComponent<ParticleSystem>().Stop();
         controller = GetComponent<Animator>();
         health = startHealth;
@@ -42,7 +45,8 @@ public class ZombieBase : MonoBehaviour
         GetComponent<Transform>().position =
             new Vector3(gardenTransform.position.x + 20, 0.49f, gardenTransform.position.z + (zombie.lane * 2) - 2);
             new Vector3(gardenTransform.position.x + 20, 0.49f, gardenTransform.position.z + (zombie.lane * 2) - 2);
-    }
+     
+}
 
     void Update()
     {
@@ -51,6 +55,7 @@ public class ZombieBase : MonoBehaviour
             damageSpeed = 2;
             counter = Time.realtimeSinceStartup - startTime2;
             gameObject.GetComponent<Rigidbody>().mass = 20;
+            //body.GetComponent<SkinnedMeshRenderer>().enabled = false;
             GetComponent<Animator>().speed = 0.5f;
             if (counter > slowedTimer)
             {
@@ -60,6 +65,7 @@ public class ZombieBase : MonoBehaviour
                 damageSpeed = 1;
 
                 slowed = false;
+                zombiebody.GetComponent<ColourChange>().blue = false;
             }
         }
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -123,6 +129,7 @@ public class ZombieBase : MonoBehaviour
         {
             Timer();
             slowed = true;
+            zombiebody.GetComponent<ColourChange>().blue = true;
         }
     }
 

@@ -489,6 +489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -117014897684036145, guid: c124818e1e2395a428985e83bc16473d,
         type: 3}
+      propertyPath: m_SkinnedMotionVectors
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -117014897684036145, guid: c124818e1e2395a428985e83bc16473d,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f6a98caea50653040bb25840b30473a8, type: 2}
@@ -626,6 +631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816833739985976355, guid: c124818e1e2395a428985e83bc16473d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1921663959364114210, guid: c124818e1e2395a428985e83bc16473d,
         type: 3}
@@ -1019,6 +1029,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c124818e1e2395a428985e83bc16473d, type: 3}
+--- !u!1 &554862175735019934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1816833739985976355, guid: c124818e1e2395a428985e83bc16473d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2199432946378769853}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8851231067793818662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554862175735019934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8a0237d8f58b141881353f570fe472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blue: 0
+  skins:
+  - {fileID: 2100000, guid: f6a98caea50653040bb25840b30473a8, type: 2}
+  - {fileID: 2100000, guid: 3b9aa99644c9e2d4f9ea3b69c05f9466, type: 2}
 --- !u!1 &1316349947020294380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c124818e1e2395a428985e83bc16473d,
@@ -5923,10 +5955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12cc81162f0bb74b9b800f105fff2a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skin:
+  - {fileID: 2100000, guid: f6a98caea50653040bb25840b30473a8, type: 2}
+  - {fileID: 2100000, guid: 3b9aa99644c9e2d4f9ea3b69c05f9466, type: 2}
   dead: 0
   headless: {fileID: 5780765010208277866, guid: c814270098d0aa94e85d2e498656d8c8,
     type: 3}
   head: {fileID: 5382269845201170658, guid: cb47ebff11860b24cabbebd15ce06cd4, type: 3}
   startHealth: 100
-  progress: {fileID: 4256717661387056246, guid: 881f0bdbb8b4ebf448373263ef725ae8,
-    type: 3}
