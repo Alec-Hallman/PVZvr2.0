@@ -2,8 +2,16 @@
     "a": 1,
     "type": "garden",
     "zombies": [
-	{ "type": "normal", "time": "1", "lane": 1 },
-	{ "type": "normal", "time": "1", "lane": 2 }
+	{ "type": "normal", "time": 15, "lane": 1 },
+	{ "type": "normal", "time": 20, "lane": 2 },
+    { "type": "normal", "time": 25, "lane": 4 },
+    { "type": "normal", "time": 30, "lane": 1 },
+    { "type": "normal", "time": 35, "lane": 2 },
+    { "type": "normal", "time": 40, "lane": 3 },
+    { "type": "normal", "time": 42, "lane": 4 },
+    { "type": "normal", "time": 45, "lane": 5 },
+    { "type": "normal", "time": 50, "lane": 5 }
+
 
 
     ]

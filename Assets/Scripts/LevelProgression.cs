@@ -48,7 +48,7 @@ public class LevelProgression : MonoBehaviour
         }
 
 
-        Debug.Log(deads);
+       // Debug.Log(deads);
 
         lastDeads = deads;
     }

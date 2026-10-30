@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
         {
             if (zombie.time == secondsSinceStart)
             {
+                Debug.Log("Spawnning, Zombie Time: " + zombie.time + "Time Since start: " + secondsSinceStart);
                 zombie.time = -1; // set the time so we don't spawn it again
                 SpawnZombie(zombie);
             }
