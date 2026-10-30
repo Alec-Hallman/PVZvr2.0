@@ -12,14 +12,13 @@ public class Player : MonoBehaviour
         set {
             _sunCount = value;
             sunCounter.text = string.Format("{0}", _sunCount);
-            UpdateSeeds();
         }
     }
     public TMPro.TextMeshProUGUI sunCounter;
     // Start is called before the first frame update
     void Start()
     {
-        sunCount = 0;
+        sunCount = 1000;
     }
 
     // Update is called once per frame
@@ -28,24 +27,18 @@ public class Player : MonoBehaviour
         
     }
 
-    private void UpdateSeeds()
-    {
-        GameObject[] seedPackets = GameObject.FindGameObjectsWithTag("Seed");
-        foreach (GameObject seedObject in seedPackets)
-        {
-            seedObject.GetComponent<seeds>().UpdateSunCount(sunCount);
-        }
-    }
+
 
     public void AddSun(int value)
     {
         sunCount += value;
     }
 
-    public bool PayWithSun(int cost)
+    public bool PayWithSun(Seed seed)
     {
-        if (cost > sunCount) return false;
-        sunCount -= cost;
+        if (!seed.CooldownFinished()) return false;
+        if (seed.Cost() > sunCount) return false;
+        sunCount -= seed.Cost();
         return true;
     }
 }

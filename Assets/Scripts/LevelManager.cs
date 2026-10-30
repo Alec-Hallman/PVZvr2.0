@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+
+    public int Zomb;
     public int level;
     public GameObject normalZombie;
     private float startTime;
@@ -14,17 +16,20 @@ public class LevelManager : MonoBehaviour
         startTime = Time.realtimeSinceStartup;
         TextAsset levelJson = Resources.Load<TextAsset>(string.Format("Levels/{0}", level));
         levelData = JsonUtility.FromJson<Level>(levelJson.text);
+  
     }
 
     // Update is called once per frame
     void Update()
     {
+        Zomb = levelData.zombies.Length;
         int secondsSinceStart = (int) Mathf.Floor(Time.realtimeSinceStartup - startTime);
         // check if we should spawn a zombie
         foreach(Zombie zombie in levelData.zombies)
         {
             if (zombie.time == secondsSinceStart)
             {
+                Debug.Log("Spawnning, Zombie Time: " + zombie.time + "Time Since start: " + secondsSinceStart);
                 zombie.time = -1; // set the time so we don't spawn it again
                 SpawnZombie(zombie);
             }

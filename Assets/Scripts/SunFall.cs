@@ -44,19 +44,22 @@ public class SunFall : MonoBehaviour
         animation.Play("FadeInOut");
     }
 
-    private void OnCollisionEnter(Collision collider)
-    {
+    private void OnTriggerEnter(Collider collider)
+    { 
         if(collider.gameObject.tag == "Dirt")
         {
             startTime = Time.realtimeSinceStartup;
             hitGround = true;
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+
         }
     }
 
     public void Collect()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<Player>().AddSun(50);
+        player.GetComponent<Player>().AddSun(25);
         Destroy(gameObject);
     }
 }

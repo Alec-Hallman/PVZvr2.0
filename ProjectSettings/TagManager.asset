@@ -8,16 +8,19 @@ TagManager:
   - Sun
   - Seed
   - Garden
+  - Plant
+  - Zombie
+  - slow
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - head
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Pea
+  - Zombie
+  - Plant
   - 
   - 
   - 

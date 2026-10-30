@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda60a848a68ebc469a497dd7fe64460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldown: 7.5
   linePointer: {fileID: 0}
 --- !u!65 &5180628570927571706
 BoxCollider:
@@ -106,6 +107,7 @@ GameObject:
   - component: {fileID: 1048495021769875894}
   - component: {fileID: 2763574057411139836}
   - component: {fileID: 1693236737794047080}
+  - component: {fileID: 2745785566690075204}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -178,3 +180,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!111 &2745785566690075204
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087110146347889293}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

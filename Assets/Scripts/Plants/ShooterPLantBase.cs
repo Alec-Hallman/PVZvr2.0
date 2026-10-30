@@ -3,32 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class ShooterPLantBase : PLantBase
+public class ShooterPlantBase : PlantBase
 {
+    private bool WaitFrame;
+    private bool repeat;
+    private bool shootAgain;
+    private float RepeaterOffset = 0.2f;
     private float startTime;
     public GameObject pea;
     void Start()
     {
+        health = startHealth;
         startTime = Time.realtimeSinceStartup;
+        
     }
 
     void Update()
     {
-        float currentTime = Time.realtimeSinceStartup - startTime;
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if (currentTime > damageSpeed)
+
+
+        string name = gameObject.name;
+        if (name.Contains("Rep"))
         {
-            startTime = Time.realtimeSinceStartup;
-            Shoot();
+            repeat = true;
         }
+        Ray detectZomb = new Ray(transform.position, transform.forward);
+        float currentTime = Time.realtimeSinceStartup - startTime;
+        WaitFrame = true;
+        Rigidbody rb = GetComponent<Rigidbody>();
+      
+
+            foreach(RaycastHit hit in Physics.RaycastAll(detectZomb))
+            {
+
+                        if (hit.collider.gameObject.tag == "Zombie")
+            {
+                if (currentTime > damageSpeed)
+                {
+                    startTime = Time.realtimeSinceStartup;
+                    Shoot();
+                    shootAgain = true;
+                    WaitFrame = false;
+
+                }
+                if (repeat == true && RepeaterOffset < currentTime && shootAgain == true && WaitFrame == true)
+                {
+                    Shoot();
+                    shootAgain = false;
+                    startTime = Time.realtimeSinceStartup;
+
+                }
+            }
+            
+
+        }
+
     }
     public void Shoot()
     {
-        pea = Instantiate(pea);
-        pea.transform.position = transform.position;
-        Debug.Log(PrefabUtility.GetCorrespondingObjectFromSource(gameObject));
-        //Trying to get the name of the Peashooter to position the projectile properly
-       // pea.GetComponent<Projectile>().Spawn(PrefabUtility.GetCorrespondingObjectFromSource(gameObject));
+        GameObject newPea = Instantiate(pea);
+        Rigidbody peaBody = newPea.GetComponent<Rigidbody>();
+        Vector3 pos = transform.position;
+        newPea.transform.position = new Vector3(pos.x +0.5f, pos.y + 0.1f, pos.z);
+        peaBody.AddForce(new Vector3(0.3f, 0, 0), ForceMode.Impulse);
     }
+
 
 }
